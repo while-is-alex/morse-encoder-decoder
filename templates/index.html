@@ -1,0 +1,31 @@
+{% include "header.html" %}
+
+	<div class="px-4 pt-5 my-5 text-center border-bottom">
+		<h1 class="display-4 fw-bold text-body-emphasis">Morse</h1>
+		<p class="container-md col-sm-8">Type your text in the box down bellow. Text to morse code and morse to text
+		options are supported. Click on the button to hear your morse code play and find your encoded or decoded text in the
+		next page.</p><br>
+		<div class="col-lg-6 mx-auto">
+			<form action="{{ url_for('translation') }}" method="POST" novalidate>
+				{{ form.csrf_token() }}
+				<p>
+					{{ form.text(class="form-control form-control-lg") }}
+					{% for err in form.text.errors %}
+					<span style="color:red">{{ err }}</span>
+					{% endfor %}
+				</p><br>
+				<div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+				<p>
+					{{ form.submit(class="btn btn-primary btn-lg px-4 me-sm-3") }}
+				</p>
+			</form>
+			</div>
+			</div>
+			<div class="overflow-hidden" style="max-height: 30vh;">
+			  <div class="container px-5">
+				<img src="{{ url_for('static', filename='morse-image.jpg') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+			</div>
+		</div>
+    </div>
+
+{% include "footer.html" %}
