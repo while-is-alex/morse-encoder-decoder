@@ -4,7 +4,7 @@ from time import sleep
 
 class MorseCode:
     def __init__(self):
-        """Initializes the text to morse dictionary that will be used for translation."""
+        """Initializes the text to text-to-morse dictionary that will be used for translation."""
         self.dictionary = {
             'a': '.-',
             'b': '-...',
@@ -57,7 +57,7 @@ class MorseCode:
 
     def translate(self, text):
         """Receives a string (text or morse) to be translated and
-        passes it through the text to morse dictionary."""
+        passes it through the text-to-morse dictionary."""
         # Checks if the character in the sentence are latin alphabet or morse code.
         is_latin_script = False
         for character in text:
